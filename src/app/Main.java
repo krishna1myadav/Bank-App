@@ -24,10 +24,51 @@ public class Main {
             System.out.println();
 
             switch(choice){
-                case "1" -> running = false;
+                case "1" -> openAccount(scanner);
+                case "2" -> deposit(scanner);
+                case "3" -> withdraw(scanner);
+                case "4" -> transfer(scanner);
+                case "5" -> statement(scanner);
+                case "6" -> listAccounts(scanner);
+                case "7" -> searchAccounts(scanner);
+                case "0" -> running = false;
 
             }
         }
 
     }
+    private static void openAccount(Scanner scanner){
+        System.out.println("Customer Name: ");
+        System.out.println("Customer email: ");
+        System.out.println("Account Type (SAVINGS/CURRENT): ");
+        System.out.println("Initial deposit (Optional): ");
+
+    }
+
+    private static void deposit(Scanner scanner){
+
+    }
+
+    private static void withdraw(Scanner scanner){
+
+    }
+
+    private static void transfer(Scanner scanner){
+
+    }
+
+    private static void statement(Scanner scanner){
+
+    }
+
+    private static void listAccounts(Scanner scanner){
+
+    }
+
+    private static void searchAccounts(Scanner scanner){
+
+    }
+
+
+
 }
