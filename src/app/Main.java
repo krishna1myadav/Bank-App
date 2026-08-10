@@ -39,9 +39,14 @@ public class Main {
     }
     private static void openAccount(Scanner scanner){
         System.out.println("Customer Name: ");
+        String name = scanner.nextLine().trim();
         System.out.println("Customer email: ");
+        String email = scanner.nextLine().trim();
         System.out.println("Account Type (SAVINGS/CURRENT): ");
+        String type = scanner.nextLine().trim();
         System.out.println("Initial deposit (Optional): ");
+        String amountStr = scanner.nextLine().trim();
+        Double initial = Double.valueOf(amountStr);
 
     }
 
