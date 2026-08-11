@@ -1,10 +1,14 @@
 package app;
 
+import serviece.BankServiece;
+import serviece.impl.BankServieceImpl;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+        BankServiece bankServiece = new BankServieceImpl();
         System.out.println("Welcome to Console Bank!!");
         boolean running = true;
         while(running){
@@ -24,7 +28,7 @@ public class Main {
             System.out.println();
 
             switch(choice){
-                case "1" -> openAccount(scanner);
+                case "1" -> openAccount(scanner, bankServiece);
                 case "2" -> deposit(scanner);
                 case "3" -> withdraw(scanner);
                 case "4" -> transfer(scanner);
@@ -37,7 +41,7 @@ public class Main {
         }
 
     }
-    private static void openAccount(Scanner scanner){
+    private static void openAccount(Scanner scanner, BankServiece bankServiece){
         System.out.println("Customer Name: ");
         String name = scanner.nextLine().trim();
         System.out.println("Customer email: ");
@@ -47,6 +51,8 @@ public class Main {
         System.out.println("Initial deposit (Optional): ");
         String amountStr = scanner.nextLine().trim();
         Double initial = Double.valueOf(amountStr);
+        bankServiece.openAccount(name, email, type);
+
 
     }
 
