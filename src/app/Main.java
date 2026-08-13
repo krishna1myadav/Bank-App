@@ -51,12 +51,21 @@ public class Main {
         System.out.println("Initial deposit (Optional): ");
         String amountStr = scanner.nextLine().trim();
         Double initial = Double.valueOf(amountStr);
-        bankServiece.openAccount(name, email, type);
+        String accountNumber = bankServiece.openAccount(name, email, type);
+        if( initial > 0)
+            bankServiece.deposit();
+        System.out.println("Account opened: " + accountNumber);
 
 
     }
 
-    private static void deposit(Scanner scanner){
+    private static void deposit(Scanner scanner, BankServiece bankServiece){
+        System.out.println("Account Number: ");
+        String accountNumber = scanner.nextLine().trim();
+        System.out.println("Amount: ");
+        Double amount = Double.valueOf(scanner.nextLine().trim());
+        bankServiece.deposit(accountNumber, amount, "Deposit");
+        System.out.println("Amount Deposited!!");
 
     }
 
