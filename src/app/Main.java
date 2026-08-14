@@ -29,7 +29,7 @@ public class Main {
 
             switch(choice){
                 case "1" -> openAccount(scanner, bankServiece);
-                case "2" -> deposit(scanner);
+                case "2" -> deposit(scanner, bankServiece);
                 case "3" -> withdraw(scanner);
                 case "4" -> transfer(scanner);
                 case "5" -> statement(scanner);
@@ -53,7 +53,7 @@ public class Main {
         Double initial = Double.valueOf(amountStr);
         String accountNumber = bankServiece.openAccount(name, email, type);
         if( initial > 0)
-            bankServiece.deposit();
+            bankServiece.deposit(accountNumber, initial, "Initial deposit");
         System.out.println("Account opened: " + accountNumber);
 
 
