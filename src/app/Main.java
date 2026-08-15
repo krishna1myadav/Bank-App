@@ -79,7 +79,12 @@ public class Main {
     }
 
     private static void transfer(Scanner scanner){
-
+        System.out.println("Account Number: ");
+        String accountNumber = scanner.nextLine().trim();
+        System.out.println("Amount: ");
+        Double amount = Double.valueOf(scanner.nextLine().trim());
+        bankServiece.withdraw(accountNumber, amount, "Withdrawal");
+        System.out.println("Amount Withdrawn!!");
     }
 
     private static void statement(Scanner scanner){
