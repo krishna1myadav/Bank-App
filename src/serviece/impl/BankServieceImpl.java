@@ -47,11 +47,13 @@ public class BankServieceImpl implements BankServiece {
     }
 
     @Override
-    public void withdraw(String accountNumber, Double amount, String withdrawal) {
+    public void withdraw(String accountNumber, Double amount, String note) {
         Account account = accountRepository.findByNumber(accountNumber)
                 .orElseThrow(() -> new RuntimeException("Account not found" + accountNumber));
-        account.setBalance(account.getBalance() + amount);
-        Transaction transaction = new Transaction(UUID.randomUUID().toString(), Type.DEPOSIT,
+        if(account.getBalance().compareTo(amount) < 0)
+            throw new RuntimeException("Insufficient Balance");
+        account.setBalance(account.getBalance() - amount);
+        Transaction transaction = new Transaction(UUID.randomUUID().toString(), Type.WITHDRAW,
                 account.getAccountNumber(), amount, LocalDateTime.now(), note);
         transactionRepository.add(transaction);
     }
