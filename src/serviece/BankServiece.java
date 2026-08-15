@@ -10,4 +10,6 @@ public interface BankServiece {
 
     void deposit(String accountNumber, Double amount, String note);
 
+    void withdraw(String accountNumber, Double amount, String withdrawal);
+
 }

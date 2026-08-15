@@ -46,6 +46,16 @@ public class BankServieceImpl implements BankServiece {
         transactionRepository.add(transaction);
     }
 
+    @Override
+    public void withdraw(String accountNumber, Double amount, String withdrawal) {
+        Account account = accountRepository.findByNumber(accountNumber)
+                .orElseThrow(() -> new RuntimeException("Account not found" + accountNumber));
+        account.setBalance(account.getBalance() + amount);
+        Transaction transaction = new Transaction(UUID.randomUUID().toString(), Type.DEPOSIT,
+                account.getAccountNumber(), amount, LocalDateTime.now(), note);
+        transactionRepository.add(transaction);
+    }
+
     private String getAccountNumber() {
         int size = accountRepository.findAll().size() + 1;
         return String.format("AC%06d", size);
