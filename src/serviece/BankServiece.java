@@ -9,7 +9,7 @@ public interface BankServiece {
     List<Account> listAccounts();
 
     void deposit(String accountNumber, Double amount, String note);
-
     void withdraw(String accountNumber, Double amount, String withdrawal);
+    void transfer(String fromAccount, String toAccount, Double amount, String s);
 
 }
