@@ -89,8 +89,10 @@ public class Main {
         System.out.println("Amount Withdrawn!!");
     }
 
-    private static void statement(Scanner scanner){
-
+    private static void statement(Scanner scanner, BankServiece bankServiece){
+        System.out.println("Account number: ");
+        String account = scanner.nextLine().trim();
+        bankServiece.getStatement(account);
     }
 
     private static void listAccounts(Scanner scanner, BankServiece bankServiece){

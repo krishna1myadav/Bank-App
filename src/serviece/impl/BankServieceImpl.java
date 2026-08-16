@@ -79,6 +79,11 @@ public class BankServieceImpl implements BankServiece {
         transactionRepository.add(toTransaction);
     }
 
+    @Override
+    public List<Transaction> getStatement(String account) {
+        return transactionRepository.findByAccount(account);
+    }
+
     private String getAccountNumber() {
         int size = accountRepository.findAll().size() + 1;
         return String.format("AC%06d", size);
