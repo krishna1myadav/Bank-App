@@ -104,8 +104,10 @@ public class Main {
 
     }
 
-    private static void searchAccounts(Scanner scanner){
-
+    private static void searchAccounts(Scanner scanner, BankServiece bankServiece){
+        System.out.println("Customer Name Contains: ");
+        String q = scanner.nextLine().trim();
+        bankServiece.searchAccountByCustomerName(q);
     }
 
 

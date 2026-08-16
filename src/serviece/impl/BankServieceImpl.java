@@ -8,6 +8,7 @@ import repository.TransactionRepository;
 import serviece.BankServiece;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
@@ -83,6 +84,14 @@ public class BankServieceImpl implements BankServiece {
     public List<Transaction> getStatement(String account) {
         return transactionRepository.findByAccount(account).stream().sorted(
                 Comparator.comparing(Transaction::getTimestamp)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Account> searchAccountByCustomerName(String q) {
+        String query = ( q == null ) ? "": q.toLowerCase();
+        List<Account> result = new ArrayList<>();
+
+        return result;
     }
 
     private String getAccountNumber() {
