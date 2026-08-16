@@ -81,7 +81,8 @@ public class BankServieceImpl implements BankServiece {
 
     @Override
     public List<Transaction> getStatement(String account) {
-        return transactionRepository.findByAccount(account);
+        return transactionRepository.findByAccount(account).stream().sorted(
+                Comparator.comparing(Transaction::getTimestamp)).collect(Collectors.toList());
     }
 
     private String getAccountNumber() {

@@ -32,7 +32,7 @@ public class Main {
                 case "2" -> deposit(scanner, bankServiece);
                 case "3" -> withdraw(scanner, bankServiece);
                 case "4" -> transfer(scanner, bankServiece);
-                case "5" -> statement(scanner);
+                case "5" -> statement(scanner, bankServiece);
                 case "6" -> listAccounts(scanner, bankServiece);
                 case "7" -> searchAccounts(scanner);
                 case "0" -> running = false;
@@ -92,7 +92,9 @@ public class Main {
     private static void statement(Scanner scanner, BankServiece bankServiece){
         System.out.println("Account number: ");
         String account = scanner.nextLine().trim();
-        bankServiece.getStatement(account);
+        bankServiece.getStatement(account).forEach( t -> {
+            System.out.println(t.getTimestamp() + " | " + t.getType() + " | " + t.getAmount() + " | " + t.getNote());
+        });
     }
 
     private static void listAccounts(Scanner scanner, BankServiece bankServiece){
