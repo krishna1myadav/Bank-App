@@ -1,9 +1,11 @@
 package serviece.impl;
 
 import domain.Account;
+import domain.Customer;
 import domain.Transaction;
 import domain.Type;
 import repository.AccountRepository;
+import repository.CustomerRepository;
 import repository.TransactionRepository;
 import serviece.BankServiece;
 
@@ -18,6 +20,7 @@ public class BankServieceImpl implements BankServiece {
 
     private final AccountRepository accountRepository = new AccountRepository();
     private final TransactionRepository transactionRepository = new TransactionRepository();
+    private final CustomerRepository customerRepository = new CustomerRepository();
     @Override
     public String openAccount(String name, String email, String accountType) {
 
@@ -90,7 +93,9 @@ public class BankServieceImpl implements BankServiece {
     public List<Account> searchAccountByCustomerName(String q) {
         String query = ( q == null ) ? "": q.toLowerCase();
         List<Account> result = new ArrayList<>();
+        for(Customer c : customerRepository.findAll()){
 
+        }
         return result;
     }
 
