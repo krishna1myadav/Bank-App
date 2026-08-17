@@ -94,10 +94,11 @@ public class BankServieceImpl implements BankServiece {
         String query = ( q == null ) ? "": q.toLowerCase();
         List<Account> result = new ArrayList<>();
         for(Customer c : customerRepository.findAll()){
-            if(c.getName().toLowerCase().contains(q)){
+            if(c.getName().toLowerCase().contains(query)){
                 result.addAll(accountRepository.findByCustomerId(c.getId()));
             }
         }
+        result.sort(Comparator.comparing(Account::getAccountNumber));
         return result;
     }
 
