@@ -99,6 +99,16 @@ public class BankServieceImpl implements BankServiece {
             }
         }
         result.sort(Comparator.comparing(Account::getAccountNumber));
+
+
+//     By Stream
+//        return customerRepository.findAll().stream()
+//                .filter(c -> c.getName().toLowerCase().contains(query))
+//                .flatMap(c -> accountRepository.findByCustomerId(c.getId()).stream())
+//                .sorted(Comparator.comparing(Account::getAccountNumber))
+//                .collect(Collectors.toList());
+
+
         return result;
     }
 
