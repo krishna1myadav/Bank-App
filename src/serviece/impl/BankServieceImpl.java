@@ -26,6 +26,9 @@ public class BankServieceImpl implements BankServiece {
 
         String customerId = UUID.randomUUID().toString();
 
+        Customer c = new Customer(email, customerId, name);
+        customerRepository.save(c);
+
 
         //String accountNumber = UUID.randomUUID().toString();
         String accountNumber = getAccountNumber();

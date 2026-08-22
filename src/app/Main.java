@@ -109,7 +109,7 @@ public class Main {
         String q = scanner.nextLine().trim();
         bankServiece.searchAccountByCustomerName(q).forEach(account ->
                 System.out.println(account.getAccountNumber() + " | " + account.getAccountType() + " | " + account.getBalance())
-                );
+        );
     }
 
 
