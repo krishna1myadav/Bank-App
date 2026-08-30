@@ -30,10 +30,19 @@ public class BankServieceImpl implements BankServiece {
         if( name == null || name.isBlank() ) throw new ValidationException("Name is required!!");
     };
 
+    private final Validation<String> validateEmail = email -> {
+        if( email == null || !email.contains("@") ) throw new ValidationException("Email is required!!");
+    };
+
+    private final Validation<String> validateType = type -> {
+        if( type == null || !type.contains("@") ) throw new ValidationException("Type is required!!");
+    };
+
     @Override
     public String openAccount(String name, String email, String accountType) {
 
         validateName.validate(name);
+        validateEmail.validate(email);
 
         String customerId = UUID.randomUUID().toString();
 
