@@ -39,6 +39,11 @@ public class BankServieceImpl implements BankServiece {
             throw new ValidationException("Type MUST be SAVINGS or CURRENT!!");
     };
 
+    private final Validation<Double> validateAmountPositive = amount -> {
+        if( amount == null || amount > 0  )
+            throw new ValidationException("Please enter a valid amount!!");
+    };
+
     @Override
     public String openAccount(String name, String email, String accountType) {
 
