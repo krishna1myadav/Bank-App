@@ -40,7 +40,7 @@ public class BankServieceImpl implements BankServiece {
     };
 
     private final Validation<Double> validateAmountPositive = amount -> {
-        if( amount == null || amount > 0  )
+        if( amount == null || amount < 0  )
             throw new ValidationException("Please enter a valid amount!!");
     };
 
