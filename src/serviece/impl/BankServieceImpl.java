@@ -35,7 +35,8 @@ public class BankServieceImpl implements BankServiece {
     };
 
     private final Validation<String> validateType = type -> {
-        if( type == null || !type.contains("@") ) throw new ValidationException("Type is required!!");
+        if( type == null || !(type.equalsIgnoreCase("SAVINGS") || type.equalsIgnoreCase("CURRENT")))
+            throw new ValidationException("Type MUST be SAVINGS or CURRENT!!");
     };
 
     @Override
@@ -43,6 +44,7 @@ public class BankServieceImpl implements BankServiece {
 
         validateName.validate(name);
         validateEmail.validate(email);
+        validateType.validate(accountType);
 
         String customerId = UUID.randomUUID().toString();
 

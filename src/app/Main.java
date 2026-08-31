@@ -50,6 +50,7 @@ public class Main {
         String type = scanner.nextLine().trim();
         System.out.println("Initial deposit (Optional): ");
         String amountStr = scanner.nextLine().trim();
+        if(amountStr.isBlank()) amountStr = "0";
         Double initial = Double.valueOf(amountStr);
         String accountNumber = bankServiece.openAccount(name, email, type);
         if( initial > 0)
